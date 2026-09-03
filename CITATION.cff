@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use agent-control-plane-casebook in research or software, please cite it as below."
+title: "agent-control-plane-casebook"
+type: dataset
+authors:
+  - family-names: Dziatkovskii
+    given-names: Anton
+    orcid: "https://orcid.org/0000-0001-7408-3054"
+    affiliation: "Palo Alto AI Research Lab"
+repository-code: "https://github.com/tonydzi/agent-control-plane-casebook"
+url: "https://github.com/tonydzi/agent-control-plane-casebook"
+license: MIT
+abstract: >-
+  Reproducible failure cases from the control plane of a production multi-agent
+  fleet: schedulers, registries, dispatchers and watchdogs that decide when and
+  whether agents run. Each case carries a symptom, a plainly stated root cause, a
+  stdlib-only deterministic repro of the mechanism, a detection guard shown red on
+  the broken behavior, mitigation with residual risk, and dated evidence with
+  upstream links. A casebook, not a benchmark: no scoring, no vendor comparisons.
+  Independent, not affiliated with or endorsed by any vendor.
