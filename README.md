@@ -44,17 +44,16 @@ is cited separately so you can check the mechanism against it.
 | # | Title | Status | Upstream |
 |---|-------|--------|----------|
 | [001](incidents/001-one-bad-entry-kills-the-scheduler/) | One malformed field silently kills the whole scheduler registry | reproduced · upstream open | [claude-code#90533](https://github.com/anthropics/claude-code/issues/90533) |
+| [002](incidents/002-restart-refires-ran-and-disabled-tasks/) | A restart re-fires already-run and disabled tasks, invisibly | reproduced · upstream open | [claude-code#74055](https://github.com/anthropics/claude-code/issues/74055) |
+| [007](incidents/007-a-second-list-makes-the-reader-report-zero/) | A registry that grew a second top-level list makes readers report a confident zero | reproduced · upstream open | [claude-code#82056](https://github.com/anthropics/claude-code/issues/82056) |
 
 Planned — each already documented in our incident journal; a case only lands here
 together with its public evidence (log excerpt or upstream link), the counters below
 are journal figures that will be published with the case:
 
-- **002 — Split-brain registries:** per-account × per-workspace task stores make
+- **003 — Split-brain registries:** per-account × per-workspace task stores make
   routines invisible after an account switch (measured: 269 task prompts on disk, 23
   registered) — [claude-code#89840](https://github.com/anthropics/claude-code/issues/89840)
-- **003 — Catch-up storm:** an app restart re-fires tasks that already ran and fires
-  `enabled: false` tasks; ghost runs never update `lastRunAt` —
-  [claude-code#74055](https://github.com/anthropics/claude-code/issues/74055)
 - **004 — Encoding kills the cron:** a BOM-less `.ps1` written by an agent parses as
   ANSI and dies only when scheduled, with no log —
   [claude-code#90962](https://github.com/anthropics/claude-code/issues/90962)
@@ -62,6 +61,10 @@ are journal figures that will be published with the case:
   sessions (fleet journal, 6 recurrences)
 - **006 — Watchdog false-green:** a health check that accepts *any* reply as service
   reported "0 orphans" for 22 consecutive runs across 2 real orphans (fleet journal)
+
+Case numbers are permanent once assigned, including to a planned case, so a case that
+ships before its lower-numbered neighbours takes the next free number rather than
+renumbering the queue.
 
 ## Methodology and scope (v0)
 
