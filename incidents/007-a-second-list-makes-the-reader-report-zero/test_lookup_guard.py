@@ -83,7 +83,23 @@ TESTS = [test_vestigial_key_lies, test_absent_key_falls_through_to_the_object,
          test_guard_clears_only_a_credible_zero]
 
 
+def strict_argv(known):
+    """Refuse unknown arguments (exit 2) instead of silently ignoring them.
+
+    Without this, `test.py --against-broken-typo` runs the GREEN suite and exits 0,
+    so "I proved the red mode" describes a command that never ran. That is this
+    repo's own subject in miniature: an unparsed flag is an instruction dropped
+    without a trace, and the exit code still says success.
+    """
+    for arg in sys.argv[1:]:
+        if arg not in known:
+            print("unknown argument %r - nothing was run (exit 2). known: %s"
+                  % (arg, sorted(known)), file=sys.stderr)
+            raise SystemExit(2)
+
+
 def main() -> int:
+    strict_argv({"--against-broken-reader"})
     global STRICT
     if "--against-broken-reader" in sys.argv:
         STRICT = False

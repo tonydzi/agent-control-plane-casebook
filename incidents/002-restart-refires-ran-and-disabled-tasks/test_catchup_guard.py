@@ -69,7 +69,23 @@ TESTS = [test_storm_reproduces, test_guard_suppresses,
          test_disabled_stays_disabled, test_fires_are_visible]
 
 
+def strict_argv(known):
+    """Refuse unknown arguments (exit 2) instead of silently ignoring them.
+
+    Without this, `test.py --against-broken-typo` runs the GREEN suite and exits 0,
+    so "I proved the red mode" describes a command that never ran. That is this
+    repo's own subject in miniature: an unparsed flag is an instruction dropped
+    without a trace, and the exit code still says success.
+    """
+    for arg in sys.argv[1:]:
+        if arg not in known:
+            print("unknown argument %r - nothing was run (exit 2). known: %s"
+                  % (arg, sorted(known)), file=sys.stderr)
+            raise SystemExit(2)
+
+
 def main() -> int:
+    strict_argv({"--against-broken-runner"})
     global GUARDED
     if "--against-broken-runner" in sys.argv:
         GUARDED = False
