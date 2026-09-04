@@ -61,6 +61,13 @@ def test_parity_alarm(tmp: str) -> str:
     root = make_root(tmp, with_bad_entry=True)
     on_disk = len(list((root / "tasks").glob("*.json")))
     loaded, _ = load_quarantine(root)
+    # Premise: the alarm's job is to tell PARTIAL loss from TOTAL loss, so a partial
+    # load must actually exist. Without this line the test passed against the broken
+    # loader too (loaded=0 makes both cases look identical) — a guard test that agrees
+    # with the failure it hunts. Found by measuring how many checks flip: 1 of 4.
+    assert len(loaded) == on_disk - 1, (
+        f"quarantine must rescue {on_disk - 1} of {on_disk}, got {len(loaded)}"
+    )
     assert parity_alarm(on_disk, 0), "silent total loss must alarm"
     assert parity_alarm(on_disk, len(loaded)), "quarantined entry must still alarm"
     assert not parity_alarm(6, 6), "full parity must stay quiet"

@@ -80,9 +80,9 @@ $ python test_registry_guard.py --against-broken-loader
 MODE: guard tests wired to the broken all-or-nothing loader (expected: RED)
 PASS test_bug_reproduces: on_disk=6 loaded=0 (total silent loss)
 FAIL test_quarantine_rescues: loaded=0
-PASS test_parity_alarm: alarm(6,0)=True alarm(6,0)=True alarm(6,6)=False
+FAIL test_parity_alarm: quarantine must rescue 5 of 6, got 0
 PASS test_healthy_registry: strict=6 loaded=6 fired=6 alarm=False
-3/4 passed
+2/4 passed
 ```
 
 ## Fix / mitigation
