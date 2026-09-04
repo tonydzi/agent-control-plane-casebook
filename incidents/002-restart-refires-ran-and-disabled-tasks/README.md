@@ -106,9 +106,10 @@ that detectable, but the platform does not yet enforce it.
 
 - Production incident, 2026-07-03 (our fleet, Windows hub): a restart storm ~23:33
   re-fired six daily tasks (crons at 00:20–05:40) minutes apart; a task `enabled:
-  false` for three days fired at 20:29; a Monday-only weekly task fired on a Thursday;
-  duplicate runs burned tens of millions of tokens with `lastRunAt` never updated.
-  Times verified from `~/.claude/projects/**/*.jsonl` session logs. Full write-up:
+  false` for three days fired at 20:29; a Monday-only weekly task (`45 5 * * 1`) fired
+  on the wrong day of the week; duplicate runs burned tens of millions of tokens with
+  `lastRunAt` never updated. Times verified from the desktop app's session logs
+  (`~/.claude/projects`). Full write-up:
   [claude-code#74055](https://github.com/anthropics/claude-code/issues/74055).
 - Environment: Claude Code 2.1.185 (Windows 11 Pro), desktop app + scheduled-tasks MCP.
 - Related in the same silent-task family: the load-contract death of case
