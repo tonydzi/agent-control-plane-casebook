@@ -1,8 +1,7 @@
 # Agent Control Plane Casebook
 
 Reproducible failure cases from the **control plane** of a real, production multi-agent
-fleet — the schedulers, registries, dispatchers and watchdogs that decide *when and
-whether* agents run. Not the models. The plumbing that launches them.
+fleet — the schedulers, registries, dispatchers and watchdogs that decide *when and whether* agents run, each case carrying a runnable repro such as [incidents/001-one-bad-entry-kills-the-scheduler/repro.py](incidents/001-one-bad-entry-kills-the-scheduler/repro.py). Not the models. The plumbing that launches them.
 
 **Independent.** This project is not affiliated with, endorsed by, or reviewed by
 Anthropic, OpenAI, Hugging Face, or any other vendor. Upstream links point at public
@@ -13,13 +12,10 @@ bug trackers, several to reports we filed ourselves.
 Model quality gets benchmarked constantly. The layer that actually runs agents in
 production — cron registries, session spawners, health checks — mostly gets debugged
 in private and forgotten. Its failures share one trait: **they are silent by
-construction**. A scheduler that loads zero tasks doesn't crash; it just stops, while
-every liveness proxy around it stays green.
+construction**. A scheduler that loads zero tasks doesn't crash; it just stops, while every liveness proxy around it stays green — that is case 001, written up in [incidents/001-one-bad-entry-kills-the-scheduler/README.md](incidents/001-one-bad-entry-kills-the-scheduler/README.md).
 
 We run a multi-machine agent fleet (Windows + macOS + a cloud anchor) with dozens of
-scheduled agent routines. Every case in this book actually happened to us, in
-production, with dates, versions and log excerpts — and where the root cause lives
-upstream, a public issue is linked.
+scheduled agent routines. Every case in this book actually happened to us, in production, with dates, versions and log excerpts in the shape [template/CASE.md](template/CASE.md) prescribes — and where the root cause lives upstream, a public issue is linked.
 
 ## What a case is
 
@@ -27,15 +23,15 @@ Each case ships as a directory under [`incidents/`](incidents/) with:
 
 - **Symptom** — what the operator saw (usually: nothing).
 - **Root cause** — the mechanism, stated plainly.
-- **Deterministic repro** — a stdlib-only Python model of the mechanism (Python 3.8+,
+- **Deterministic repro** such as [incidents/001-one-bad-entry-kills-the-scheduler/repro.py](incidents/001-one-bad-entry-kills-the-scheduler/repro.py) — a stdlib-only Python model of the mechanism (Python 3.8+,
   no network, no dependencies, fixed clock, same output every run; use `python3` where
   `python` isn't aliased).
-- **Detection guard** — the check that turns the silent failure into an alarm, with a
+- **Detection guard** such as [incidents/001-one-bad-entry-kills-the-scheduler/test_registry_guard.py](incidents/001-one-bad-entry-kills-the-scheduler/test_registry_guard.py) — the check that turns the silent failure into an alarm, with a
   test that is shown red on the broken behavior.
-- **Fix / mitigation and residual risk** — what actually resolved it, and what still can bite.
+- **Fix / mitigation and residual risk** — what actually resolved it, and what still can bite, in the section [template/CASE.md](template/CASE.md) reserves for it.
 - **Evidence** — versions, dates, upstream links.
 
-An honest limitation, stated once and repeated per case: the repro scripts model the
+An honest limitation, stated once and repeated per case: repro scripts like [incidents/002-restart-refires-ran-and-disabled-tasks/repro.py](incidents/002-restart-refires-ran-and-disabled-tasks/repro.py) model the
 *mechanism* deterministically; they are not the vendor's code. The real-world evidence
 is cited separately so you can check the mechanism against it.
 
@@ -62,16 +58,12 @@ are journal figures that will be published with the case:
 - **006 — Watchdog false-green:** a health check that accepts *any* reply as service
   reported "0 orphans" for 22 consecutive runs across 2 real orphans (fleet journal)
 
-Case numbers are permanent once assigned, including to a planned case, so a case that
-ships before its lower-numbered neighbours takes the next free number rather than
-renumbering the queue.
+Case numbers are permanent once assigned, including to a planned case, so a case that ships before its lower-numbered neighbours takes the next free number rather than renumbering the queue; the rule lives in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Methodology and scope (v0)
 
-- **Our own stack only.** No scoring, no vendor comparisons, no leaderboard. This is a
-  casebook, not a benchmark — deliberately. A scoring harness only earns the right to
-  exist after cases have external reproductions and at least one vendor-confirmed
-  root cause. That is the staged plan, in that order.
+- **Our own stack only.** No scoring, no vendor comparisons, no leaderboard — the scope is fixed in [CONTRIBUTING.md](CONTRIBUTING.md). This is a
+  casebook, not a benchmark — deliberately. A scoring harness only earns the right to exist after cases have external reproductions and at least one vendor-confirmed root cause, which is the bar [CONTRIBUTING.md](CONTRIBUTING.md) sets. That is the staged plan, in that order.
 - Failures are abstracted to their mechanism (registry shapes, loader contracts,
   timing), not our private configuration.
 - External reproductions are the most valuable contribution — see
@@ -81,7 +73,6 @@ renumbering the queue.
 
 Maintained by [Anton Dzyatkovsky](https://github.com/tonydzi). Case docs and code are
 drafted by Mycroft — Anton's synthetic co-founder, an AI agent — and published
-autonomously; Anton is the responsible human for this repository. Every commit carries
-`Assisted-by` provenance trailers. Corrections: open an issue.
+autonomously; Anton is the responsible human for this repository. Every commit carries `Assisted-by` provenance trailers; the repository is licensed [MIT](LICENSE) and citable via [CITATION.cff](CITATION.cff). Corrections: open an issue.
 
 License: [MIT](LICENSE).
