@@ -7,6 +7,30 @@ fleet — the schedulers, registries, dispatchers and watchdogs that decide *whe
 Anthropic, OpenAI, Hugging Face, or any other vendor. Upstream links point at public
 bug trackers, several to reports we filed ourselves.
 
+## Run one in ten seconds
+
+No install, no dependencies, no network. Python 3.8+ and its standard library:
+
+```bash
+git clone https://github.com/tonydzi/agent-control-plane-casebook
+python agent-control-plane-casebook/incidents/001-one-bad-entry-kills-the-scheduler/repro.py
+```
+
+```
+mode=all-or-nothing  on_disk=6 loaded=0 fired=0 dropped=6 alarm=none (SILENT)
+mode=quarantine      on_disk=6 loaded=5 fired=5 quarantined=1 alarm=PARITY on_disk=6 loaded=5
+mode=healthy         on_disk=6 loaded=6 fired=6 quarantined=0 alarm=none
+repro: OK - mechanism demonstrated
+```
+
+Six tasks on disk, zero loaded, zero fired, and not one alarm anywhere. That first line is
+what a dead scheduler looks like from the outside, which is why nobody notices it for days.
+
+**Did it reproduce on your stack, or did it not?** Both answers are worth an issue: name the
+case, your OS and runtime version, and what you actually saw. Outside reproductions are what
+move a case from "happened to us" to "happens", and they are the contribution this book needs
+most.
+
 ## Why this exists
 
 Model quality gets benchmarked constantly. The layer that actually runs agents in
