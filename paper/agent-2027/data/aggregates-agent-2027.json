@@ -1,0 +1,635 @@
+{
+ "snapshot": {
+  "window": [
+   "2026-09-04",
+   "2026-11-07"
+  ],
+  "shards": 7,
+  "records_all": 6030,
+  "records_window": 5989,
+  "first_record": "2026-09-03",
+  "last_record": "2026-11-08",
+  "nodes": 5,
+  "by_role": {
+   "hub": 3186,
+   "anchor": 36,
+   "personal-laptop": 1173,
+   "workstation": 728,
+   "laptop": 866
+  },
+  "known_late": {
+   "workstation": "joined the fleet journal on 2026-09-30 (its first record); anchor bus_guard log shows no evacuation of its shard"
+  },
+  "first_day_by_role": {
+   "hub": "2026-09-04",
+   "anchor": "2026-09-05",
+   "personal-laptop": "2026-09-04",
+   "workstation": "2026-09-30",
+   "laptop": "2026-09-04"
+  },
+  "days": 65
+ },
+ "robot": {
+  "lines": 1141,
+  "first_day": "2026-09-04",
+  "days_with_lines": 61,
+  "per_day_median_ci": [
+   9.0,
+   6.0,
+   16.0
+  ],
+  "unparsed_target": 0,
+  "id_conflicts": 0,
+  "share_of_window": [
+   19.1,
+   18.1,
+   20.1
+  ],
+  "targets": 201,
+  "nodes": 1,
+  "runbook_none": 1117,
+  "runbook_none_pct": [
+   97.9,
+   96.9,
+   98.6
+  ],
+  "repeats_median_ci": [
+   2.0,
+   2.0,
+   4.0
+  ],
+  "repeats_quartiles": [
+   1.0,
+   2.0,
+   6.0
+  ],
+  "repeats_max": 36,
+  "targets_ge3": 99,
+  "targets_ge10": 38,
+  "span_days_median_ci": [
+   6.0,
+   3.0,
+   7.0
+  ],
+  "repeats_sorted": [
+   36,
+   34,
+   33,
+   30,
+   27,
+   27,
+   26,
+   25,
+   24,
+   22,
+   22,
+   22,
+   21,
+   21,
+   21,
+   20,
+   20,
+   18,
+   18,
+   18,
+   18,
+   18,
+   17,
+   17,
+   15,
+   15,
+   14,
+   13,
+   13,
+   13,
+   12,
+   12,
+   12,
+   12,
+   11,
+   10,
+   10,
+   10,
+   9,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   7,
+   7,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ "session": {
+  "lines": 4848,
+  "class_names": 3573,
+  "singleton_names": 3049,
+  "singleton_names_pct": [
+   85.3,
+   84.1,
+   86.5
+  ],
+  "names_ge3": 205,
+  "lines_in_names_ge3": 1161,
+  "lines_in_names_ge3_pct": [
+   23.9,
+   22.8,
+   25.2
+  ],
+  "lines_per_name_max": 73,
+  "family_map_size": 131,
+  "lines_with_family": 1283,
+  "lines_with_family_pct": [
+   26.5,
+   25.2,
+   27.7
+  ],
+  "families_hit": 128,
+  "families_ge3": 92,
+  "names_per_family_median": 3.0,
+  "names_per_family_max": 207,
+  "families_ge3_hidden_by_names": 20,
+  "lines_in_families_ge3": 1242,
+  "lines_in_families_ge3_pct": [
+   25.6,
+   24.4,
+   26.9
+  ],
+  "lines_recurring_either": 1823,
+  "lines_recurring_family_only": 662
+ },
+ "weekly": {
+  "weeks": [
+   "2026-09-07",
+   "2026-09-14",
+   "2026-09-21",
+   "2026-09-28",
+   "2026-10-05",
+   "2026-10-12",
+   "2026-10-19",
+   "2026-10-26"
+  ],
+  "robot": [
+   9,
+   38,
+   49,
+   68,
+   151,
+   161,
+   365,
+   174
+  ],
+  "session": [
+   460,
+   334,
+   454,
+   592,
+   879,
+   333,
+   513,
+   544
+  ],
+  "session_active_nodes": [
+   4,
+   4,
+   4,
+   5,
+   5,
+   4,
+   5,
+   5
+  ],
+  "session_per_active_node": [
+   115.0,
+   83.5,
+   113.5,
+   118.4,
+   175.8,
+   83.2,
+   102.6,
+   108.8
+  ],
+  "mk_session_per_node": {
+   "n": 8,
+   "S": -2,
+   "z": -0.12,
+   "p": 0.9015,
+   "tau": -0.07
+  }
+ },
+ "recovered": {
+  "records": 2244,
+  "records_window": 2241,
+  "robot_window": 481
+ },
+ "audit": {
+  "sample_sha256": "32e9111a0f017967983a34ab91c0578949c433806e8a11a6e720acbcc0dd3c46",
+  "codebook_sha256": "3fb6927fa4220e353b36b864d49b6aa67e325f1c0fc84ce992f3b95d8fe4c344",
+  "sample": 200,
+  "rails": [
+   "gemini",
+   "glm",
+   "mistral"
+  ],
+  "complete": 191,
+  "coverage": {
+   "gemini": 200,
+   "glm": 191,
+   "mistral": 200
+  },
+  "fleiss_g": 0.69,
+  "cohen_g_min": 0.66,
+  "cohen_g_max": 0.71,
+  "no_majority_g": 3,
+  "dist_g": {
+   "DISPATCH": 68,
+   "OTHER": 39,
+   "VERIFY": 71,
+   "SCHEDULE": 10,
+   "NOMAJ": 3
+  },
+  "fleiss_s": 0.71,
+  "cohen_s_min": 0.65,
+  "cohen_s_max": 0.75,
+  "no_majority_s": 2,
+  "dist_s": {
+   "UNCLEAR": 5,
+   "LOUD": 56,
+   "SILENT": 128,
+   "NOMAJ": 2
+  },
+  "fleiss_m": 0.41,
+  "cohen_m_min": 0.38,
+  "cohen_m_max": 0.48,
+  "no_majority_m": 22,
+  "dist_m": {
+   "M2": 51,
+   "NONE": 65,
+   "M3": 17,
+   "M4": 23,
+   "M1": 5,
+   "NOMAJ": 22,
+   "M5": 8
+  },
+  "control_plane": 149,
+  "group_decided": 188,
+  "control_plane_pct": [
+   79.3,
+   72.9,
+   84.4
+  ],
+  "control_plane_bounds": [
+   74.5,
+   80.5
+  ],
+  "unresolved_group": 12,
+  "cp_by_group": {
+   "SCHEDULE": 10,
+   "DISPATCH": 68,
+   "VERIFY": 71
+  },
+  "cp_silent": 104,
+  "cp_silent_decided": 146,
+  "cp_silent_pct": [
+   71.2,
+   63.4,
+   78.0
+  ],
+  "other_silent": 21,
+  "other_silent_decided": 35,
+  "other_silent_pct": [
+   60.0,
+   43.6,
+   74.4
+  ],
+  "silent_diff": [
+   11.2,
+   -5.2,
+   29.0
+  ],
+  "cp_mech": {
+   "M1": 4,
+   "M2": 48,
+   "M3": 11,
+   "M4": 23,
+   "M5": 8,
+   "NONE": 37
+  },
+  "cp_mech_any": 94,
+  "cp_mech_decided": 131,
+  "cp_mech_any_pct": [
+   71.8,
+   63.5,
+   78.8
+  ],
+  "cp_by_group_silent": {
+   "SCHEDULE": [
+    7,
+    10
+   ],
+   "DISPATCH": [
+    42,
+    65
+   ],
+   "VERIFY": [
+    55,
+    71
+   ]
+  },
+  "cp_lines_est": [
+   3844,
+   3534,
+   4092
+  ]
+ },
+ "cases": {
+  "_note": "Numbers quoted inside the cases. Each carries the file that first stated it and a needle string the test finds in that file. 'repo:' = public casebook repository at commit 5d3a325 (cloned to the scratch dir for the check); 'vault:' = path under the vault root.",
+  "c10_days": {
+   "value": 7,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "c1_tasks": {
+   "value": 35,
+   "source": "repo:incidents/001-one-bad-entry-kills-the-scheduler/README.md"
+  },
+  "c1_hours": {
+   "value": 55,
+   "source": "repo:incidents/001-one-bad-entry-kills-the-scheduler/README.md"
+  },
+  "c3_on_disk": {
+   "value": 269,
+   "source": "vault:00-System/Breakage-Journal.md.bak-20260828-091733"
+  },
+  "c5_refired": {
+   "value": 6,
+   "source": "repo:incidents/002-restart-refires-ran-and-disabled-tasks/README.md"
+  },
+  "c5_tokens_m": {
+   "value": 24.8,
+   "source": "repo:incidents/002-restart-refires-ran-and-disabled-tasks/README.md"
+  },
+  "c8_enabled": {
+   "value": 243,
+   "source": "vault:10-Tasks/task-2026-08-22-repair-silent-green-watchdog.md"
+  },
+  "c8_declared": {
+   "value": 41,
+   "source": "vault:10-Tasks/task-2026-08-22-repair-silent-green-watchdog.md"
+  },
+  "c8_killlist": {
+   "value": 8,
+   "source": "vault:10-Tasks/task-2026-09-04-repair-время-для-fireat-снимай-не-с-шелла.md"
+  },
+  "c9_runs_zero": {
+   "value": 22,
+   "source": "vault:10-Tasks/task-2026-08-22-repair-n8n-telegram-html-parse.md"
+  },
+  "c9_orphans": {
+   "value": 2,
+   "source": "vault:10-Tasks/task-2026-08-22-repair-n8n-telegram-html-parse.md"
+  },
+  "c9_unknown_runs": {
+   "value": 9,
+   "source": "vault:10-Tasks/task-2026-08-22-repair-silent-green-watchdog.md"
+  },
+  "c9_restarts": {
+   "value": 1583,
+   "source": "vault:10-Tasks/task-2026-08-22-repair-silent-green-watchdog.md"
+  },
+  "c9_failed_starts": {
+   "value": 40,
+   "source": "vault:10-Tasks/task-2026-08-22-repair-silent-green-watchdog.md"
+  },
+  "c9_days": {
+   "value": 8,
+   "source": "vault:10-Tasks/task-2026-08-22-repair-silent-green-watchdog.md"
+  },
+  "c9_surfaced_days": {
+   "value": 16,
+   "source": "vault:10-Tasks/task-2026-08-22-repair-silent-green-watchdog.md"
+  },
+  "c10_repeats": {
+   "value": 624,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "c10_runs": {
+   "value": 626,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "c10_log_mb": {
+   "value": 8.8,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "c10_connector_days": {
+   "value": 52,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "c11_plan_proofs": {
+   "value": 28,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "c11_records": {
+   "value": 663,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "c11_unpaid_before": {
+   "value": 2,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "c11_unpaid_after": {
+   "value": 71,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "c11_unwired_unpaid": {
+   "value": 193,
+   "source": "vault:10-Tasks/task-2026-09-15-repair-built-part-never-wired.md"
+  },
+  "c11_unwired_oldest_h": {
+   "value": 478,
+   "source": "vault:10-Tasks/task-2026-09-15-repair-built-part-never-wired.md"
+  },
+  "audit0822_records": {
+   "value": 722,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "audit0822_names": {
+   "value": 648,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "audit0822_singleton_pct": {
+   "value": 97,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "audit0822_at_threshold": {
+   "value": 7,
+   "source": "vault:00-System/Breakage-Journal.md"
+  },
+  "c12_shard_mb": {
+   "value": "2.00",
+   "source": "vault:_machine-bus/_breakage/breakage__from-hub.jsonl.evacuated.md"
+  },
+  "c12_evacuated_on": {
+   "value": "2026-10-18",
+   "source": "vault:_machine-bus/_breakage/breakage__from-hub.jsonl.evacuated.md"
+  },
+  "c12_found_on": {
+   "value": "2026-11-08",
+   "source": "vault:05-Resources/PhD/arxiv-submission/control-plane-casebook/agent-2027/analysis/casebook_stats.py"
+  }
+ }
+}
