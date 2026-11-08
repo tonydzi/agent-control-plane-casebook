@@ -189,6 +189,8 @@ def main():
     os.makedirs(DATA, exist_ok=True)
 
     if len(sys.argv) > 1 and sys.argv[1] == "sample":
+        if not PRIVATE.get("role"):
+            raise SystemExit("sample mode needs the private pattern file (CASEBOOK_PRIVATE); refusing to export unredacted text")
         rng = random.Random(SEED)
         pick = rng.sample(sorted(sess, key=lambda r: r["id"]), SAMPLE_N)
         with open(os.path.join(DATA, "audit_sample.jsonl"), "w", encoding="utf-8") as fo:
