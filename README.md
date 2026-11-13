@@ -1,4 +1,65 @@
-# Agent Control Plane Casebook
+# agent-control-plane-casebook
+
+A collection of real failures in the plumbing that starts AI agents (schedulers, task registries, watchdogs), each with a small script that reproduces the failure on your own computer.
+
+**Who it's for:** people who run scheduled AI agents, and researchers who study how agent systems break.
+**What you get:** three documented cases, each with a repro script and a check that turns the silent failure into an alarm.
+
+## Quick start
+1. Install Python 3.8 or newer. Nothing else is needed.
+2. `git clone https://github.com/tonydzi/agent-control-plane-casebook`
+3. Run `python agent-control-plane-casebook/incidents/001-one-bad-entry-kills-the-scheduler/repro.py` (use `python3` if `python` is not set up).
+
+**Done when:** the last line printed is `repro: OK - mechanism demonstrated`, after a first line showing `loaded=0 fired=0` and `alarm=none (SILENT)`.
+
+> Want an AI agent to do it for you? Paste this to Claude Code / Codex / Cursor:
+> "Read the 'For AI agents' section of https://github.com/tonydzi/agent-control-plane-casebook and set it up for me."
+
+## For AI agents
+
+### Preconditions
+- Python 3.8 or newer, standard library only. No network, no accounts, no API keys.
+- Any OS. The author ran the checks below on Windows with Python 3.12.
+- Ask the human only if they want to submit a reproduction as an issue: it needs their GitHub account and their consent to post OS and runtime details.
+
+### Reproduce
+```bash
+git clone https://github.com/tonydzi/agent-control-plane-casebook
+cd agent-control-plane-casebook
+python incidents/001-one-bad-entry-kills-the-scheduler/repro.py
+python incidents/002-restart-refires-ran-and-disabled-tasks/repro.py
+python incidents/007-a-second-list-makes-the-reader-report-zero/repro.py
+python incidents/001-one-bad-entry-kills-the-scheduler/test_registry_guard.py
+python incidents/002-restart-refires-ran-and-disabled-tasks/test_catchup_guard.py
+python incidents/007-a-second-list-makes-the-reader-report-zero/test_lookup_guard.py
+```
+Each case folder has `README.md` (symptom, root cause, fix, evidence), `repro.py` and a `test_*.py` guard. Case numbers are permanent; new cases follow `template/CASE.md` and `CONTRIBUTING.md`.
+
+### Configure
+Nothing to configure. The repro scripts use a fixed clock and no network, so output is the same on every run.
+
+### Verify
+```bash
+python incidents/001-one-bad-entry-kills-the-scheduler/repro.py
+```
+Expected output, exit code 0 (verified locally):
+```
+mode=all-or-nothing  on_disk=6 loaded=0 fired=0 dropped=6 alarm=none (SILENT)
+mode=quarantine      on_disk=6 loaded=5 fired=5 quarantined=1 alarm=PARITY on_disk=6 loaded=5
+mode=healthy         on_disk=6 loaded=6 fired=6 quarantined=0 alarm=none
+repro: OK - mechanism demonstrated
+```
+Cases 002 and 007 also end with `repro: OK - mechanism demonstrated` and exit 0. The 001 guard test ends with `4/4 passed`.
+
+### Uninstall / rollback
+Delete the cloned folder. The scripts write nothing outside it.
+
+### Rules for the agent
+- These scripts model a mechanism. They are not the vendors' code, so do not claim they prove a vendor bug on the human's own setup.
+- Do not open issues or comments on upstream trackers without the human's approval; state OS, runtime version and what you actually saw if they approve.
+- Do not add real task names, paths or private configuration to a new case.
+
+## Details
 
 Reproducible failure cases from the **control plane** of a real, production multi-agent
 fleet — the schedulers, registries, dispatchers and watchdogs that decide *when and whether* agents run, each case carrying a runnable repro such as [incidents/001-one-bad-entry-kills-the-scheduler/repro.py](incidents/001-one-bad-entry-kills-the-scheduler/repro.py). Not the models. The plumbing that launches them.
