@@ -10,7 +10,7 @@ A collection of real failures in the plumbing that starts AI agents (schedulers,
 2. `git clone https://github.com/tonydzi/agent-control-plane-casebook`
 3. Run `python agent-control-plane-casebook/incidents/001-one-bad-entry-kills-the-scheduler/repro.py` (use `python3` if `python` is not set up).
 
-**Done when:** the last line printed is `repro: OK - mechanism demonstrated`, after a first line showing `loaded=0 fired=0` and `alarm=none (SILENT)`.
+**Done when:** the last line printed is `repro: OK - mechanism demonstrated`. The first line, `loaded=0 fired=0` and `alarm=none (SILENT)`, looks like a failure but is the point: it shows the scheduler silently dropping all 6 tasks with no alarm. The second line shows the fix catching it (`alarm=PARITY`).
 
 > Want an AI agent to do it for you? Paste this to Claude Code / Codex / Cursor:
 > "Read the 'For AI agents' section of https://github.com/tonydzi/agent-control-plane-casebook and set it up for me."
@@ -49,7 +49,7 @@ mode=quarantine      on_disk=6 loaded=5 fired=5 quarantined=1 alarm=PARITY on_di
 mode=healthy         on_disk=6 loaded=6 fired=6 quarantined=0 alarm=none
 repro: OK - mechanism demonstrated
 ```
-Cases 002 and 007 also end with `repro: OK - mechanism demonstrated` and exit 0. The 001 guard test ends with `4/4 passed`.
+Cases 002 and 007 also end with `repro: OK - mechanism demonstrated` and exit 0. The `repro.py` scripts only demonstrate a mechanism, so they print OK whenever they run; they are not the check that fails when something is broken. That check is the guard tests: run `test_registry_guard.py` (001), `test_catchup_guard.py` (002) and `test_lookup_guard.py` (007); each exits 0 and ends with `4/4 passed`, `4/4 passed` and `5/5 passed` respectively, and exits non-zero with a FAIL line if a guard stops working.
 
 ### Uninstall / rollback
 Delete the cloned folder. The scripts write nothing outside it.
